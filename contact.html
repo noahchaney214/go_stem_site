@@ -11,15 +11,97 @@
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 
   <link rel="stylesheet" href="css/main.css">
-  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    label {
+      color: white;
+    }
+
+    /* Style inputs */
+    input[type=text], select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical;
+    }
+
+    input[type=email], select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical;
+    }
+
+    input[type=submit] {
+      background-color: #004075FF;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: #005675;
+    }
+
+    /* Style the container/contact section */
+    .body.container {
+      border-radius: 5px;
+      background-color: #004075FF;
+      padding: 10px;
+      margin-bottom: 3vh;
+      width: 50%;
+    }
+
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 800px) {
+      #submitButton {
+        width: 100%;
+        margin-top: 0;
+      }
+      .body.container {
+        width: 100%;
+      }
+    }
+
+    #submitButton {
+      background-color: #2F8038FF;
+      color: white;
+      border-radius: 4px;
+      border: rgba(0, 0, 0, 0);
+      font-size: 20px;
+      height: 40px;
+    }
+    #submitButton:hover {
+      background-color: #39cb47;
+
+    }
+
+  </style>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed; margin-top: -7vh; width: 100%; z-index: 1;">
-  <a class="navbar-brand" href="#"><img src="img/EOU-GOSTEM_logo_RGB.png" style="max-height: 7vh; "></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light"  style="position: fixed;">
+  <a class="navbar-brand" href="#"><img src="img/EOU-GOSTEM_logo_RGB.png" style="max-height: 7vh;" alt="eou go stem logo"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -62,14 +144,46 @@
   </div>
 </nav>
 
-<div class="header container-flex" style="margin-top: 7vh; padding-top: 4vh;">
+<div class="header" >
   <header>
     <h2> Contact Us </h2>
   </header>
 </div>
 
+<!-- FORM -->
 <div class="body container">
+  <div style="text-align:center">
+    <h2 style="color: azure">Leave us a message:</h2>
 
+  </div>
+  <div class="container">
+
+    <form id="contactForm" method="post">
+      <label for="fname">First Name</label>
+      <input required type="text" id="fname" name="firstname" placeholder="Your name..">
+      <label for="lname">Last Name</label>
+      <input required type="text" id="lname" name="lastname" placeholder="Your last name..">
+      <label for="email">Email</label>
+      <input required type="email" id="email" name="email" placeholder="example@example.com">
+      <br>
+      <label for="school">School</label>
+      <input required type="text" id="school" name="school" placeholder="Your school..">
+      <label for="county" >County</label>
+      <select required id="county" name="county">
+        <option value="">Select...</option>
+        <option value="baker">Baker</option>
+        <option value="grant">Grant</option>
+        <option value="harney">Harney</option>
+        <option value="morrow">Morrow</option>
+        <option value="umatilla">Umatilla</option>
+        <option value="union">Union</option>
+        <option value="wallowa">Wallowa</option>
+      </select>
+      <label for="subject" style="margin-top: 20px;">Message</label>
+      <textarea required id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+      <button id="submitButton" onclick="submitContact()">Submit</button>
+    </form>
+  </div>
 </div>
 
 <!-- Remove the container if you want to extend the Footer to full width. -->
@@ -149,8 +263,8 @@
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+      Administrator Login:
+      <a class="text-blue" href="admin.html">Login In</a>
     </div>
     <!-- Copyright -->
   </footer>
